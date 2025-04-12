@@ -2,8 +2,9 @@ import streamlit as st
 import pandas as pd
 import datetime
 import uuid
+import urllib
 
-# Initialize session state for storage
+# Initialize session state
 if "investments" not in st.session_state:
     st.session_state.investments = []
 
@@ -13,18 +14,17 @@ if "loans" not in st.session_state:
 if "admin_mode" not in st.session_state:
     st.session_state.admin_mode = False
 
-st.title("💰 CASH POCKET : Invest & Borrow Platform")
+st.title("💰 CashGrow: Invest & Borrow Platform")
 
 st.sidebar.title("🔐 Admin Access")
 admin_pass = st.sidebar.text_input("Enter Admin Password", type="password")
-if admin_pass == "Ayush@1212":
+if admin_pass == "admin123":
     st.sidebar.success("Admin Mode Enabled")
     st.session_state.admin_mode = True
 else:
     st.session_state.admin_mode = False
 
 st.header("📊 Choose Your Action")
-
 tab1, tab2 = st.tabs(["🚀 Invest Money", "📥 Apply for Loan"])
 
 # ---------------------- INVESTMENT SECTION ----------------------
@@ -40,7 +40,10 @@ with tab1:
 
         st.markdown("---")
         st.markdown("### 📲 Step 1: Make Payment to UPI")
-        st.write("✅ Send ₹{} to the UPI ID:".format(invest_amount))
+
+        upi_url = f"upi://pay?pa=ayushbhradwaj009-1@okicici&pn=AyushBhardwaj&am={invest_amount}&cu=INR"
+        qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={urllib.parse.quote(upi_url)}"
+        st.image(qr_url, caption="Scan to Pay", use_column_width=False)
         st.code("ayushbhradwaj009-1@okicici", language="text")
 
         confirm = st.checkbox("✅ I have paid the amount")
@@ -72,7 +75,10 @@ with tab2:
         tax = 0.05 * loan_amount
         total_payable = loan_amount + tax
         st.warning(f"⚠️ You must pay ₹{total_payable:.2f} (₹{tax:.2f} is tax).")
-        st.write("Make payment to:")
+
+        upi_url_loan = f"upi://pay?pa=ayushbhradwaj009-1@okicici&pn=AyushBhardwaj&am={total_payable}&cu=INR"
+        qr_url_loan = f"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={urllib.parse.quote(upi_url_loan)}"
+        st.image(qr_url_loan, caption="Scan to Pay", use_column_width=False)
         st.code("ayushbhradwaj009-1@okicici", language="text")
 
         loan_paid = st.checkbox("✅ I have paid the loan fee")
@@ -123,3 +129,33 @@ if st.session_state.admin_mode:
     with st.expander("📁 Download Loan Applications"):
         st.download_button("Download CSV", pd.DataFrame(st.session_state.loans).to_csv(index=False),
                            file_name="loans.csv")
+
+# ---------------------- SUPPORT SECTION ----------------------
+st.markdown("---")
+st.markdown("### 📞 Customer Support")
+
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown("**📧 Email:**")
+    st.code("ayushbhradwaj009@gmail.com")
+
+with col2:
+    st.markdown("**📱 Contact Number:**")
+    st.code("6201328257")
+
+st.markdown("_Feel free to reach out with any queries regarding investment or loan requests._")
+
+# ---------------------- CONTACT OPTIONS ----------------------
+st.markdown("---")
+st.markdown("### 📞 Contact Us Quickly")
+
+# WhatsApp button
+whatsapp_url = "https://wa.me/916201328257?text=Hi,%20I%20need%20assistance%20with%20my%20investment/loan!"
+st.markdown(f"[📲 Chat with us on WhatsApp]( {whatsapp_url} )", unsafe_allow_html=True)
+
+# Email button
+email_url = "mailto:ayushbhradwaj009@gmail.com?subject=Support Request&body=Hello!%20I%20need%20assistance%20with%20my%20investment/loan."
+st.markdown(f"[📧 Email us for support]( {email_url} )", unsafe_allow_html=True)
+
+st.markdown("_You can reach us instantly via WhatsApp or email for any queries._")
+
