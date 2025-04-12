@@ -15,11 +15,11 @@ if "admin_mode" not in st.session_state:
     st.session_state.admin_mode = False
 
 # ---------- App Title and Admin Panel ----------
-st.title("💰 CashGrow: Invest & Borrow Platform")
+st.title("💰 CashPocket: Invest & Borrow Platform")
 
 st.sidebar.title("🔐 Admin Access")
 admin_pass = st.sidebar.text_input("Enter Admin Password", type="password")
-if admin_pass == "admin123":
+if admin_pass == "Ayush123":
     st.sidebar.success("Admin Mode Enabled")
     st.session_state.admin_mode = True
 else:
