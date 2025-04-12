@@ -13,11 +13,11 @@ if "loans" not in st.session_state:
 if "admin_mode" not in st.session_state:
     st.session_state.admin_mode = False
 
-st.title("💰 CashGrow: Invest & Borrow Platform")
+st.title("💰 CASH POCKET : Invest & Borrow Platform")
 
 st.sidebar.title("🔐 Admin Access")
 admin_pass = st.sidebar.text_input("Enter Admin Password", type="password")
-if admin_pass == "admin123":
+if admin_pass == "Ayush@1212":
     st.sidebar.success("Admin Mode Enabled")
     st.session_state.admin_mode = True
 else:
