@@ -102,7 +102,7 @@ with tab2:
                     "Loan ID": loan_id,
                     "Name": name,
                     "Date Of Birth": dob,
-                    "Contect Number": contect_number
+                    "Contect Number": contect_number,
                     "Amount": loan_amount,
                     "Tax": tax,
                     "Bank Account": acc_num,
