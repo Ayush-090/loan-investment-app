@@ -42,7 +42,7 @@ with tab1:
 
         st.markdown("### 📲 Step 1: Make Payment to UPI")
         upi_url = f"upi://pay?pa=ayushbhradwaj009-1@okicici&pn=AyushBhardwaj&am={invest_amount}&cu=INR"
-        qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={urllib.parse.quote(upi_url)}"
+        qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={urllib.parse.quote(upi_url)}"
         st.image(qr_url, caption="Scan to Pay", use_container_width=False)
         st.code("ayushbhradwaj009-1@okicici", language="text")
 
@@ -79,26 +79,30 @@ with tab2:
         st.warning(f"⚠️ Pay ₹{total_payable:.2f} (includes ₹{tax:.2f} tax)")
 
         upi_url = f"upi://pay?pa=ayushbhradwaj009-1@okicici&pn=AyushBhardwaj&am={total_payable}&cu=INR"
-        qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={urllib.parse.quote(upi_url)}"
+        qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={urllib.parse.quote(upi_url)}"
         st.image(qr_url, caption="Scan to Pay", use_container_width=False)
         st.code("ayushbhradwaj009-1@okicici", language="text")
 
-        confirm = st.checkbox("✅ Apply for loan after payment")
+        confirm = st.checkbox("✅ Apply for loan Easily ")
 
         if confirm:
             name = st.text_input("Full Name")
+            dob = st.text_input("Date Of Birth")
+            contect_number = st.text_input("Contect Number")
             acc_num = st.text_input("Bank Account Number")
             ifsc = st.text_input("IFSC Code")
             pan = st.text_input("PAN Number")
             aadhaar = st.text_input("Aadhaar Number")
             phone = st.text_input("Contact Number")
-            doc = st.file_uploader("Upload ID/Bank Statement (PDF/JPG)", type=["pdf", "jpg", "png"])
+            doc = st.file_uploader("Upload College ID/Bank Statement (PDF/JPG)", type=["pdf", "jpg", "png"])
 
             if st.button("Submit Loan Application"):
                 loan_id = str(uuid.uuid4())[:8]
                 st.session_state.loans.append({
                     "Loan ID": loan_id,
                     "Name": name,
+                    "Date Of Birth": dob,
+                    "Contect Number": contect_number
                     "Amount": loan_amount,
                     "Tax": tax,
                     "Bank Account": acc_num,
