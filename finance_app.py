@@ -43,7 +43,7 @@ with tab1:
 
         upi_url = f"upi://pay?pa=ayushbhradwaj009-1@okicici&pn=AyushBhardwaj&am={invest_amount}&cu=INR"
         qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={urllib.parse.quote(upi_url)}"
-       st.image(qr_url, caption="Scan to Pay", use_container_width=True)
+        st.image(qr_url, caption="Scan to Pay", use_container_width=True)
 
         st.code("ayushbhradwaj009-1@okicici", language="text")
 
@@ -79,7 +79,7 @@ with tab2:
 
         upi_url_loan = f"upi://pay?pa=ayushbhradwaj009-1@okicici&pn=AyushBhardwaj&am={total_payable}&cu=INR"
         qr_url_loan = f"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={urllib.parse.quote(upi_url_loan)}"
-      st.image(qr_url, caption="Scan to Pay", use_container_width=True)
+        st.image(qr_url_loan, caption="Scan to Pay", use_container_width=True)
 
         st.code("ayushbhradwaj009-1@okicici", language="text")
 
@@ -156,7 +156,6 @@ st.markdown("### 📞 Contact Us Quickly")
 # WhatsApp button
 whatsapp_url = "https://wa.me/916201328257?text=Hi,%20I%20need%20assistance%20with%20my%20investment/loan!"
 st.markdown(f"[📲 Chat with us on WhatsApp]( {whatsapp_url} )", unsafe_allow_html=True)
-
 
 st.markdown("_You can reach us instantly via WhatsApp or email for any queries._")
 st.markdown("_AYUSH BHARDWAJ_")
