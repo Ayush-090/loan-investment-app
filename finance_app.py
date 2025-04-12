@@ -100,8 +100,7 @@ with tab2:
                 st.session_state.loans.append({
                     "Loan ID": loan_id,
                     "Name": name,
-                    "Date OF Birth":dob
-                    "
+                    "Date Of Birth": dob,
                     "Amount": loan_amount,
                     "Tax": tax,
                     "Bank Account": acc_num,
