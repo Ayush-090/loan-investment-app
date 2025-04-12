@@ -161,5 +161,5 @@ whatsapp_url = "https://wa.me/916201328257?text=Hi,%20I%20need%20assistance%20wi
 st.markdown(f"[📲 Chat with us on WhatsApp]( {whatsapp_url} )", unsafe_allow_html=True)
 
 st.markdown("_You can reach us instantly via WhatsApp or email for any queries._")
-st.markdown("<h4 style='font-size:22px; font-weight:bold;'>AYUSH BHARDWAJ</h4>", unsafe_allow_html=True)
-st.markdown("<h4 style='font-size:22px; font-weight:bold;'>RAGHVENDRA SINGH</h4>", unsafe_allow_html=True)
+st.markdown("<span style='font-size:24px; font-weight:bold'>AYUSH BHARDWAJ</span>", unsafe_allow_html=True)
+st.markdown("<span style='font-size:24px; font-weight:bold'>RAGHVENDRA SINGH</span>", unsafe_allow_html=True)
